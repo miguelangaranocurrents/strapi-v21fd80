@@ -625,8 +625,10 @@ const RelationsInput = ({
        *
        */
       onChange(relation);
+      // The search that produced this selection must not filter the next time the list opens.
+      setSearchParams({ _q: '', page: 1 });
     },
-    [data, formatMessage, onChange, toggleNotification]
+    [data, formatMessage, onChange, setSearchParams, toggleNotification]
   );
 
   const relation = React.useMemo(
